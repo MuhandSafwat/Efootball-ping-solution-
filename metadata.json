@@ -1,0 +1,6 @@
+{
+  "name": "eFootball Ping Monitor",
+  "description": "A elegant floating ping overlay designed for eFootball mobile players to track matchmaking latency and auto-detect which Konami server region they are connected to.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

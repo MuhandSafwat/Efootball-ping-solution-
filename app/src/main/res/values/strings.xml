@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">eFootball Ping Monitor</string>
+    <string name="title_app">eFootball Ping &amp; Server Monitor</string>
+    <string name="overlay_service_title">eFootball Ping Overlay Active</string>
+    <string name="overlay_service_desc">Running network ping tracking overlay in background.</string>
+    <string name="btn_start_overlay">Enable Floating Overlay</string>
+    <string name="btn_stop_overlay">Disable Floating Overlay</string>
+    <string name="perm_req_title">Overlay Permission Required</string>
+    <string name="perm_req_desc">The eFootball Ping Monitor needs permission to draw over other apps. This lets us display a tiny, floating ping meter on your screen while you play eFootball, showing you your live ping and connection server.</string>
+    <string name="btn_grant_perm">Grant Permission</string>
+    <string name="server_middle_east">Middle East &amp; Africa (Bahrain)</string>
+    <string name="server_europe_central">Europe Central (Frankfurt)</string>
+    <string name="server_europe_west">Europe West (London)</string>
+    <string name="server_asia_east">Asia East (Tokyo - HQ)</string>
+    <string name="server_southeast_asia">Southeast Asia (Singapore)</string>
+    <string name="server_south_america">South America (São Paulo)</string>
+    <string name="server_north_america">North America East (Virginia)</string>
+    <string name="server_oceania">Oceania (Sydney)</string>
+    <string name="ping_excellent">Excellent</string>
+    <string name="ping_good">Good</string>
+    <string name="ping_fair">Fair</string>
+    <string name="ping_poor">Poor</string>
+    <string name="status_header">Server Connection Status</string>
+    <string name="tab_monitor">Monitor</string>
+    <string name="tab_diagnostics">Diagnostics</string>
+    <string name="diagnostics_title">eFootball Network Guide</string>
+    <string name="tip_wifi_5ghz">Use 5GHz WiFi or Ethernet for stable ping free of packet loss.</string>
+    <string name="tip_matchmaking">Matchmaking matches you with servers based on ping &lt; 40ms for optimal gameplay.</string>
+    <string name="tip_background_apps">Close other background apps syncing or downloading files.</string>
+    <string name="btn_test_servers">Run Speedtest Ping</string>
+    <string name="btn_testing">Testing...</string>
+    <string name="desc_detected_server">Your estimated connected server (lowest latency) is:</string>
+    <string name="overlay_collapsed">Tap to expand</string>
+    <string name="overlay_server">Server: %1$s</string>
+    <string name="overlay_ping">%1$d ms</string>
+    
+    <!-- New Block/Allow & Light Mode strings -->
+    <string name="status_allowed">Allowed / Pass</string>
+    <string name="status_blocked">Blocked / Avoid</string>
+    <string name="action_block">Block</string>
+    <string name="action_allow">Allow</string>
+    <string name="perf_mode_title">Overlay Performance Mode</string>
+    <string name="perf_mode_desc">Configure background tracker footprint to optimize device RAM &amp; FPS during match gameplay.</string>
+    <string name="pref_low_ram">Ultra Light Mode (Recommended for gameplay)</string>
+    <string name="pref_low_ram_active">Low-RAM Active: Throttled update rate, simple UI, minimum memory footprint.</string>
+    <string name="warning_blocked_server">Warning: Selected server is in your Blocked/Avoid list!</string>
+    <string name="block_instruction">Tap green/red badges next to servers to toggle block/allow status. Blocked servers will be excluded from optimization.</string>
+</resources>
