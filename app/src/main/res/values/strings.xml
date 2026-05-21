@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">eFootball Ping Monitor</string>
+    <string name="app_name">eFootball 0 Ping</string>
     <string name="title_app">eFootball Ping &amp; Server Monitor</string>
     <string name="overlay_service_title">eFootball Ping Overlay Active</string>
     <string name="overlay_service_desc">Running network ping tracking overlay in background.</string>
     <string name="btn_start_overlay">Enable Floating Overlay</string>
     <string name="btn_stop_overlay">Disable Floating Overlay</string>
     <string name="perm_req_title">Overlay Permission Required</string>
-    <string name="perm_req_desc">The eFootball Ping Monitor needs permission to draw over other apps. This lets us display a tiny, floating ping meter on your screen while you play eFootball, showing you your live ping and connection server.</string>
+    <string name="perm_req_desc">This app needs permission to draw over other apps. This lets us display a tiny, floating transparent ping meter on your screen while you play eFootball, showing you your live ping and connection server.</string>
     <string name="btn_grant_perm">Grant Permission</string>
     <string name="server_middle_east">Middle East &amp; Africa (Bahrain)</string>
     <string name="server_europe_central">Europe Central (Frankfurt)</string>
@@ -23,6 +23,7 @@
     <string name="status_header">Server Connection Status</string>
     <string name="tab_monitor">Monitor</string>
     <string name="tab_diagnostics">Diagnostics</string>
+    <string name="tab_speed_limiter">Speed Limiter</string>
     <string name="diagnostics_title">eFootball Network Guide</string>
     <string name="tip_wifi_5ghz">Use 5GHz WiFi or Ethernet for stable ping free of packet loss.</string>
     <string name="tip_matchmaking">Matchmaking matches you with servers based on ping &lt; 40ms for optimal gameplay.</string>
@@ -45,4 +46,28 @@
     <string name="pref_low_ram_active">Low-RAM Active: Throttled update rate, simple UI, minimum memory footprint.</string>
     <string name="warning_blocked_server">Warning: Selected server is in your Blocked/Avoid list!</string>
     <string name="block_instruction">Tap green/red badges next to servers to toggle block/allow status. Blocked servers will be excluded from optimization.</string>
+    <string name="server_aws_anycast">AWS Cloud Anycast</string>
+    
+    <!-- Firewall & Background app limiters -->
+    <string name="vpn_card_title">Local Block Firewall (Anti-Delay)</string>
+    <string name="vpn_card_desc">Blocks connection to unselected/avoided servers to force matchmaking connection to your preferred servers.</string>
+    <string name="btn_start_vpn">Enable Firewall Block</string>
+    <string name="btn_stop_vpn">Disable Firewall Block</string>
+    <string name="vpn_status_active">Firewall active: Blocked servers are now dropped locally!</string>
+    <string name="vpn_status_inactive">Firewall inactive: Game can connect to any server.</string>
+    
+    <string name="block_bg_apps_title">Disable Background App Data</string>
+    <string name="block_bg_apps_desc">Restricts all other background apps from using your internet while VPN blocking is enabled, dedicating 100% bandwidth to the game.</string>
+    
+    <!-- Speed Limiter Interface -->
+    <string name="speed_limiter_title">Bandwidth Limiter (Anti-Jitter)</string>
+    <string name="speed_limiter_desc">Limit peak download and upload rates to prevent bufferbloat, stabilizing your ping even if others are utilizing the network.</string>
+    <string name="label_download_limit">Download Limit (Mbps)</string>
+    <string name="label_upload_limit">Upload Limit (Mbps)</string>
+    <string name="btn_start_limiter">Enable Speed Limiter</string>
+    <string name="btn_stop_limiter">Disable Speed Limiter</string>
+    <string name="speed_limiter_active">Traffic shaper active: Speed throttled to your limits!</string>
+    <string name="speed_limiter_inactive">Traffic shaper inactive: Internet runs at unfiltered speed.</string>
+    <string name="limits_applied">Speed limits updated and applied!</string>
+    <string name="invalid_limits">Please enter valid speed limit values (greater than 0.1 Mbps)</string>
 </resources>

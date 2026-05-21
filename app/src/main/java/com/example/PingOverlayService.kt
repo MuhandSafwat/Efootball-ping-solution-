@@ -17,12 +17,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import androidx.compose.animation.*
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -32,6 +35,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
@@ -301,7 +306,7 @@ fun FloatingOverlayLayout(
     }
 
     if (isLowRam) {
-        // ULTRA LIGHT LOW RAM MINI BADGE [• 42 ms | X] (Perfect for corners during intense gaming)
+        // ULTRA LIGHT LOW RAM MINI BADGE with custom golden Messi logo and status glow dot
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
@@ -311,31 +316,46 @@ fun FloatingOverlayLayout(
                         onDrag(dragAmount.x.toInt(), dragAmount.y.toInt())
                     }
                 }
-                .shadow(4.dp, RoundedCornerShape(10.dp))
-                .background(Color(0xE60D111A), RoundedCornerShape(10.dp)) // Translucent ultra-dark body
-                .padding(horizontal = 8.dp, vertical = 6.dp)
+                .background(Color(0xE60F1524), RoundedCornerShape(20.dp))
+                .border(1.dp, Color(0xFFFACC15).copy(alpha = 0.6f), RoundedCornerShape(20.dp))
+                .padding(horizontal = 8.dp, vertical = 5.dp)
                 .wrapContentSize()
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.app_ping_icon_1779359445265),
+                contentDescription = "Logo",
+                modifier = Modifier
+                    .size(18.dp)
+                    .clip(CircleShape)
+            )
+            Spacer(modifier = Modifier.width(6.dp))
             Box(
                 modifier = Modifier
-                    .size(8.dp)
+                    .size(6.dp)
                     .background(activeColor, CircleShape)
             )
-            Spacer(modifier = Modifier.width(5.dp))
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = if (ping != null) "${ping}ms" else "...",
                 color = Color.White,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Divider(
-                color = Color.Gray.copy(alpha = 0.3f),
-                modifier = Modifier
-                    .height(12.dp)
-                    .width(1.dp)
+                fontSize = 11.5.sp,
+                fontWeight = FontWeight.Bold,
+                style = LocalTextStyle.current.copy(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(1f, 1f),
+                        blurRadius = 3f
+                    )
+                )
             )
             Spacer(modifier = Modifier.width(6.dp))
+            HorizontalDivider(
+                color = Color.Gray.copy(alpha = 0.3f),
+                modifier = Modifier
+                    .height(11.dp)
+                    .width(1.dp)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
             Box(
                 modifier = Modifier
                     .size(16.dp)
@@ -346,7 +366,7 @@ fun FloatingOverlayLayout(
                     imageVector = Icons.Default.Close,
                     contentDescription = "Close",
                     tint = Color.LightGray,
-                    modifier = Modifier.size(11.dp)
+                    modifier = Modifier.size(10.dp)
                 )
             }
         }
@@ -360,59 +380,88 @@ fun FloatingOverlayLayout(
                         onDrag(dragAmount.x.toInt(), dragAmount.y.toInt())
                     }
                 }
-                .shadow(6.dp, RoundedCornerShape(16.dp))
-                .background(Color(0xE610141E), RoundedCornerShape(16.dp)) // Translucent ultra-dark blue
+                .background(Color.Transparent, RoundedCornerShape(16.dp))
                 .padding(8.dp)
                 .wrapContentSize()
         ) {
             if (!isExpanded) {
-                // COMPACT/MINIMIZED MODE
+                // COMPACT/MINIMIZED MODE with circular logo + status glow
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(Color(0xE60F1524))
+                        .border(1.dp, Color(0xFFFACC15).copy(alpha = 0.6f), RoundedCornerShape(20.dp))
                         .clickable { isExpanded = true }
-                        .padding(horizontal = 8.dp, vertical = 6.dp)
+                        .padding(horizontal = 10.dp, vertical = 6.dp)
                 ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.app_ping_icon_1779359445265),
+                        contentDescription = "Logo",
+                        modifier = Modifier
+                            .size(20.dp)
+                            .clip(CircleShape)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
                     // Glow indicator dot
                     Box(
                         modifier = Modifier
-                            .size(10.dp)
+                            .size(6.dp)
                             .background(activeColor, CircleShape)
                     )
-                    Spacer(modifier = Modifier.width(6.dp))
+                    Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = if (ping != null) "${ping}ms" else "...",
                         color = Color.White,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
+                        style = LocalTextStyle.current.copy(
+                            shadow = Shadow(
+                                color = Color.Black,
+                                offset = Offset(1f, 1f),
+                                blurRadius = 3f
+                            )
+                        )
                     )
                 }
             } else {
-                // DETAILED EXPANDED MODE
+                // DETAILED EXPANDED MODE with luxury headers and centered logo branding
                 Column(
                     modifier = Modifier
                         .width(180.dp)
-                        .padding(4.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xF20F1524))
+                        .border(1.5.dp, Color(0xFFFACC15), RoundedCornerShape(16.dp))
+                        .padding(10.dp)
                 ) {
-                    // Header with actions
+                    // Header with actions & Logo!
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Box(
+                            Image(
+                                painter = painterResource(id = R.drawable.app_ping_icon_1779359445265),
+                                contentDescription = "Logo",
                                 modifier = Modifier
-                                    .size(8.dp)
-                                    .background(activeColor, CircleShape)
+                                    .size(22.dp)
+                                    .clip(CircleShape)
+                                    .border(1.dp, Color(0xFFFACC15), CircleShape)
                             )
                             Spacer(modifier = Modifier.width(6.dp))
                             Text(
                                 text = "eFootball Ping",
-                                color = Color.LightGray,
+                                color = Color.White,
                                 fontSize = 11.sp,
-                                fontWeight = FontWeight.SemiBold
+                                fontWeight = FontWeight.Bold,
+                                style = LocalTextStyle.current.copy(
+                                    shadow = Shadow(
+                                        color = Color.Black,
+                                        offset = Offset(1f, 1f),
+                                        blurRadius = 3f
+                                    )
+                                )
                             )
                         }
                         Row {
@@ -442,7 +491,7 @@ fun FloatingOverlayLayout(
                         }
                     }
                     
-                    Divider(color = Color.Gray.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 4.dp))
+                    HorizontalDivider(color = Color.Gray.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 4.dp))
                     
                     // Huge dynamic Ping Text
                     Text(
@@ -453,7 +502,14 @@ fun FloatingOverlayLayout(
                         textAlign = TextAlign.Center,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 6.dp)
+                            .padding(vertical = 6.dp),
+                        style = LocalTextStyle.current.copy(
+                            shadow = Shadow(
+                                color = Color.Black,
+                                offset = Offset(1.5f, 1.5f),
+                                blurRadius = 5f
+                            )
+                        )
                     )
 
                     // Server region label
@@ -464,7 +520,14 @@ fun FloatingOverlayLayout(
                         fontWeight = FontWeight.Medium,
                         textAlign = TextAlign.Center,
                         maxLines = 1,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        style = LocalTextStyle.current.copy(
+                            shadow = Shadow(
+                                color = Color.Black,
+                                offset = Offset(1f, 1f),
+                                blurRadius = 3f
+                            )
+                        )
                     )
                     
                     Spacer(modifier = Modifier.height(2.dp))
@@ -480,7 +543,14 @@ fun FloatingOverlayLayout(
                         color = Color.Gray,
                         fontSize = 9.sp,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        style = LocalTextStyle.current.copy(
+                            shadow = Shadow(
+                                color = Color.Black,
+                                offset = Offset(1f, 1f),
+                                blurRadius = 3f
+                            )
+                        )
                     )
                 }
             }
